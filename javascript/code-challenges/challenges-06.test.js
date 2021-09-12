@@ -24,17 +24,16 @@ Returns: ['dyoll', 'eimaj'];
 
 
 const getNames = (arr) => {
-  // Solution code here...
-  let array =[];
-arr.map(value=>{ 
-  let stringElm=value.name.split('');
-  let reversedName=stringElm.reduce((acc,val,idx)=>{
-acc=val+acc;
-return acc;
-  },'')
-  array.push(reversedName);
-})
-return array;
+
+  let arr1 = arr.map(element=>{
+
+   let arr2= [...element.name]
+    let sum = arr2.reduce((accumulator, currentValue) => currentValue + accumulator , '');
+    return sum
+  })
+
+  return arr1
+
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -45,8 +44,8 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 
 
 const appendTheEnd = (str) => {
-  // Solution code here...
-  return str+' The end.'
+  let str1 = `${str} The end.`;
+  return str1;
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -61,9 +60,10 @@ appendFirstToLast(a);
 console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
 const appendFirstToLast = (arr) => {
-  // Solution code here...
-  arr.push(arr[0]);
-};
+  let arr1=arr;
+  arr1.push(arr[0])
+ 
+ };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -81,8 +81,8 @@ console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 ------------------------------------------------------------------------------------------------ */
 
 const addBirthYearProperty = (obj, year) => {
-  // Solution code here...
-  obj.yearBorn=year;
+  let obj1=obj;
+  obj1.yearBorn = year
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
