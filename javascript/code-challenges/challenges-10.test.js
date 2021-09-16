@@ -9,6 +9,7 @@ Write a function named returnTen, takes in a string and uses split and splice to
 
 function returnTen(str){
   // Solution code here...
+  return str.split("").splice(-10);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -27,6 +28,11 @@ return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
   // Solution code here...
+  let arrayOfNum = [];
+  for (let i = 0; i < matrix.length; i++) {
+    arrayOfNum.push(...matrix[i]);
+  }
+  return Math.max(...arrayOfNum);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,6 +51,13 @@ return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   // Solution code here...
+  let sum = 0;
+  matrix.forEach((main) => {
+    main.forEach((element) => {
+      sum = sum + element;
+    });
+  });
+  return sum;
 };
 
 
@@ -72,6 +85,16 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
+  let sumArray = [];
+  stores[0].forEach((n) => {
+    sumArray.push(0);
+  });
+  for (let i = 0; i < stores.length; i++) {
+    for (let j = 0; j < stores[i].length; j++) {
+      sumArray[j] = sumArray[j] + stores[i][j];
+    }
+  }
+  return sumArray;
 
 };
 
@@ -87,6 +110,13 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+  let arrayObj = [];
+  hours.forEach((hour) => {
+    data.forEach((item, i) => {
+      arrayObj[i] = { sales: `${item} cookies`, time: hours[i] };
+    });
+  });
+  return arrayObj;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -112,6 +142,19 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  let quan = 0;
+  arr.map(element => {
+   if (element.store === 'Pet store') {
+   
+     element.items.forEach(items => {
+       if (items.name === 'Treats') {
+        
+         quan = items.quantity;
+       }
+     });
+   }
+ });
+ return quan;
 };
 
 /* ------------------------------------------------------------------------------------------------
