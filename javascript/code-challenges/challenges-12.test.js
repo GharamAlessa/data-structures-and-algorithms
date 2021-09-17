@@ -3,13 +3,17 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function named replaceZeros that, given a string, uses Regex to replace all '0' with the word 'zero'. 
+Write a function named replaceZeros that, given a string, uses Regex to replace all '0' with the word 'zero'.
 ------------------------------------------------------------------------------------------------ */
 
 const replaceZeros = (string) => {
-  
-    // Solution code here...
-}
+  // Solution code here...
+  const regex1 = /0/g;
+  const value = "zero";
+  let result = string.replace(regex1, value);
+
+  return result;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -21,6 +25,12 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 
 const validatePin = (pin) => {
   // Solution code here...
+  let regex1 = /^\d{4}$/;
+  if (regex1.test(pin)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,6 +43,12 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 
 const validateWord = (word) => {
   // Solution code here...
+  let regex1 = /^[a-zA-Z]{5,10}$/;
+  if (regex1.test(word)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,6 +61,12 @@ If it does, return true. If not, return false.
 
 const hasNumber = (string) => {
   // Solution code here...
+  let regex1 = /[a-zA-Z][0-9]/;
+  if (regex1.test(string)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,6 +87,12 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
+  let regex1 = /^\w+(\.\w+)?@\w+\.(net|org|com)$/;
+  if (regex1.test(email)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,6 +118,12 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
+  let regex1 = /^((\(\d{3}\))|(\d{3}))[ -]?\d{3}[ -]?\d{4}$/;
+  if (regex1.test(phoneNumber)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -183,6 +217,7 @@ describe('Testing challenge 5', () => {
     expect(validateEmail('.@noname.com')).toBeFalsy();
     expect(validateEmail('nolastname.@sadness.net')).toBeFalsy();
     expect(validateEmail('canadaisnotreal@canada.ca')).toBeFalsy();
+    expect(validateEmail('needadot@inthesecondpart')).toBeFalsy();
     expect(validateEmail('missing.atsymbol.net')).toBeFalsy();
     expect(validateEmail('looksgood@sofar.comohnowaitthisisbad')).toBeFalsy();
     expect(validateEmail('no.middle.names@foryou.com')).toBeFalsy();
